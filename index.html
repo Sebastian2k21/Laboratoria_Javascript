@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Lab 1</title>
+</head>
+
+<body>
+
+    <input type="text" id="liczba1" />
+    <input type="text" id="liczba2" />
+    <button id="przelicz">Przelicz</button>
+
+    <div id="wyniki"></div>
+
+    <script src="main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        const liczba1 = document.querySelector('#liczba1');
+        const liczba2 = document.querySelector('#liczba2');
+        const przeliczBtn = document.querySelector('#przelicz');
+        const wynik = document.querySelector('#wyniki');
+
+        przeliczBtn.addEventListener('click', () => {
+            const inputValue1 = parseInt(liczba1.value);
+            const inputValue2 = parseInt(liczba2.value);
+
+            if (!isNaN(inputValue1) && !isNaN(inputValue2)) {
+                const sum = inputValue1 + inputValue2;
+                const avg = (inputValue1 + inputValue2) / 2;
+                const min = Math.min(inputValue1, inputValue2);
+                const max = Math.max(inputValue1, inputValue2);
+
+                wynik.innerHTML = `Suma: ${sum}<br>Średnia: ${avg}<br>Min: ${min}<br>Max: ${max}`;
+            } else {
+                wynik.innerHTML = "Proszę wpisać liczby w oba pola.";
+            }
+        });
+    </script>
+</body>
+
+</html>
